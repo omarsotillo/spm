@@ -1,0 +1,89 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
+    "postrelease": "npm run release:tags && npm run release:github && ci-publish",
+    "prerelease": "npm run update:check && npm run contributors",
+    "release:github": "conventional-github-releaser -p angular",
+    "release:tags": "git push --follow-tags origin HEAD:master",
+    "release": "standard-version -a",
+    "update:check": "ncu -- --error-level 2",
+    "update": "ncu -u"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "spm",
+  "author": "Omar Sotillo Franco",
+  "module": "dist/spm.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/spm.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/spm.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "husky": "latest",
+    "size-limit": "^4.9.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.3",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "ci-publish": "latest",
+    "conventional-github-releaser": "latest",
+    "finepack": "latest",
+    "git-authors-cli": "latest",
+    "lint-staged": "latest",
+    "npm-check-updates": "latest",
+    "standard-version": "latest"
+  },
+  "dependencies": {
+    "find-up": "^5.0.0",
+    "meow": "^8.0.0",
+    "react": "^17.0.1"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "package.json": [
+      "finepack"
+    ]
+  }
+}
