@@ -1,7 +1,7 @@
 import findUp from 'find-up';
 import { Manager } from './managers';
 import path from 'path';
-
+import { isArrayEmpty, cleanArray } from './utils';
 export const JS_LOCK_FILES: Record<string, Manager> = {
   'pnpm-lock.yaml': 'pnpm',
   'yarn.lock': 'yarn',
@@ -34,15 +34,4 @@ export async function findManagersBasedOnLockfiles(): Promise<
         return MANAGERS[path.basename(element as string)];
       });
   return managers;
-}
-
-export function cleanArray<T>(array: T[], value: T): Array<T> {
-  return array.filter((el) => {
-    return el != value;
-  });
-}
-
-export function isArrayEmpty<T>(array: T[]): boolean {
-  if (!Array.isArray(array) || !array.length) return true;
-  return false;
 }
