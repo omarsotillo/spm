@@ -1,22 +1,35 @@
-# SPM (Single Package manager)
+# SPM (SinglePackage Manager)
 
-Stop caring about what package manager (js, ruby, python, rust) you should use.
+The only package manager to rule them all 💍
 
-# Usage
+- Resolve conflicts with shared libraries in a interactive cli 🤷🏻‍♂️
+- General commands: forget about the implementation of each package manager
+- Accept flags from each command
+- Support npm, yarn, pnpm, bundler, cargo, composer
 
-```
-$ spm i - install in the package managers
-$ spm a - add a new package
-$ spm r - run a command in the package manager
-$ spm u - update a specific package
-```
+# Installation
 
-## Publishing to NPM
+`yard global add @omarsotillo/spm`
 
-We recommend using [np](https://github.com/sindresorhus/np).
+# Usage (--help)
 
-## Development
+![Usage](docs/images/usage.png)
 
+## Package managers supported
+
+|        Package manager        | Install | Add | Update | Lock | Global | Development(soon) |
+| :---------------------------: | :-----: | :-: | :----: | :--: | :----: | :---------------: |
+|           yarn(js)            |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
+|            npm(js)            |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
+|           pnpm(js)            |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
+|         bundler(ruby)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
+| cargo - with cargo-edit(rust) |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |        ❌         |
+|          pip(python)          |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |        ❌         |
+|         composer(php)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
+
+## Contributing
+
+TODO: contributing guide
 `yarn install`
 `yarn run start`
 `ts-node dist/index.js <command> <options>`

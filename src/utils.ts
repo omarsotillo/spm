@@ -13,6 +13,22 @@ export function cleanArray<T>(array: T[], value: T): Array<T> {
 }
 
 export function isArrayEmpty<T>(array: T[]): boolean {
-  if (!Array.isArray(array) || !array.length) return true;
-  return false;
+  return !Array.isArray(array) || !array.length;
+}
+
+export function formatChoicesForManagers(answers: { libraries: any }) {
+  const libraries = answers.libraries;
+  const result: Record<string, string[]> = {};
+
+  for (const library of libraries) {
+    const splittedString: string[] = library.split('-');
+    result[splittedString[0]] = (result[splittedString[0]] || []).concat(
+      splittedString[1]
+    );
+  }
+  return result;
+}
+
+export function recordHasAtLeastOneKey(object: Record<string, unknown>) {
+  return Object.keys(object).length > 0;
 }
