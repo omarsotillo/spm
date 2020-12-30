@@ -1,14 +1,14 @@
 ![SPM introduction](docs/images/spm.png)
 
-[Last version](https://img.shields.io/github/tag/omarsotillo/spm.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/omarsotillo/spm/master.svg?style=flat-square)](https://travis-ci.org/omarsotillo/spm)
+![Last version](https://img.shields.io/github/tag/omarsotillo/spm.svg?style=flat-square)
+![Travis (.com)](https://img.shields.io/travis/com/omarsotillo/spm)
 [![Dependency status](https://img.shields.io/david/omarsotillo/spm.svg?style=flat-square)](https://david-dm.org/omarsotillo/spm)
 [![Dev Dependencies Status](https://img.shields.io/david/dev/omarsotillo/spm.svg?style=flat-square)](https://david-dm.org/omarsotillo/omar#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/@omarsotillo/spm.svg?style=flat-square)](https://www.npmjs.org/package/omarsotillo/spm)
 
 <!-- [![Coverage Status](https://img.shields.io/coveralls/omarsotillo/spm.svg?style=flat-square)](https://coveralls.io/github/omarsotillo/spm) -->
 
-- Resolve conflicts with shared libraries in a interactive cli 🤷🏻‍♂️
+- Resolve conflicts with shared libraries in a interactive cli
 - General commands: forget about the implementation of each package manager
 - Accept flags from each command
 - Support npm, yarn, pnpm, bundler, cargo, composer
@@ -20,7 +20,7 @@
 # Usage (--help)
 
 ```bash
- Usage ⚡️
+    Usage ⚡️
       $ spm install                  - install all libraries in project package-managers
       $ spm add <library/es>         - add new library/es to the project-managers
       $ spm update <library/es>      - update library/es to the project-managers
@@ -33,6 +33,8 @@
       --print, -p        - Will print the command but not execute it
       --global, -g       - Global mode installation. Commands like add will be converted to global
       --development, -d  - Add the command in development mode
+      --backend, -b      - Run command in backend package manager only
+      --frontend, -f     - Run command in frontend package manager only
 
     Examples 🎉
       $ spm add react
