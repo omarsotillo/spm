@@ -36,7 +36,7 @@ export function createCli() {
       --development, -d  - Add the command in development mode
       --backend, -b      - Run command in backend package manager only
       --frontend, -f     - Run command in frontend package manager only
-      
+
     Examples 🎉
       $ spm add react
       📝 Add library in the package-managers that register a react package/library
@@ -54,6 +54,14 @@ export function createCli() {
         development: {
           type: 'boolean',
           alias: 'd',
+        },
+        frontend: {
+          type: 'boolean',
+          alias: 'f',
+        },
+        backend: {
+          type: 'boolean',
+          alias: 'b',
         },
       },
     }

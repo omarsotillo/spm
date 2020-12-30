@@ -14,7 +14,7 @@ import { formatChoicesForManagers, recordHasAtLeastOneKey } from './utils';
 export async function run(
   cli: meow.Result<any>
 ): Promise<string | void | Buffer> {
-  const managers = await findManagersBasedOnLockfiles();
+  const managers = await findManagersBasedOnLockfiles(cli.flags);
 
   if (!managers) {
     return errorNoManagersFound();
@@ -53,11 +53,11 @@ export async function run(
 
     if (execCommand === undefined) continue; // TODO: better error handling
 
-    if (cli.flags['print']) {
-      return console.log(execCommand);
+    if (cli.flags.print) {
+      console.log(execCommand);
+    } else {
+      execSync(execCommand as string, { stdio: 'inherit' });
     }
-
-    return execSync(execCommand as string, { stdio: 'inherit' });
   }
 }
 
