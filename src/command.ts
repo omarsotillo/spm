@@ -2,18 +2,15 @@ import meow from 'meow';
 import { Manager, MANAGERS } from './managers';
 
 export type Command = keyof Commands;
-
 export type Commands = {
-  i: string; // install
-  a: string; // add
-  u: string; // update
-  r: string; // run
-  l: string; // list
-  //d: string; // delete
-  o: string; // outdated
+  i: string;
+  a: string;
+  u: string;
+  r: string;
+  l: string;
+  //d: string;
+  o: string;
 };
-
-export const CommandsWithoutArgument = ['a', 'u', 'r'];
 
 export function parseCommand(
   manager: Manager,
@@ -35,7 +32,7 @@ export function parseCommand(
 }
 
 function commandNeedsArguments(cliCommand: string): boolean {
-  return CommandsWithoutArgument.includes(cliCommand);
+  return ['a', 'u', 'r'].includes(cliCommand);
 }
 
 function addGlobalParam(command: string, global: unknown): string {
@@ -49,7 +46,7 @@ function addArguments(command: string, args: string[]): string | undefined {
 }
 
 function addFlags(command: string, flags: meow.TypedFlags<any>) {
-  if (flags === undefined || (flags && !flags.length)) return command;
+  if (flags === undefined || (flags && !flags?.length)) return command;
 
   const formattedFlags = Object.entries(flags)
     .filter((flag) => flag[1])

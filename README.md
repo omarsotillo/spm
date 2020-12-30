@@ -1,6 +1,12 @@
-# SPM (SinglePackage Manager)
+![SPM introduction](docs/images/spm.png)
 
-The only package manager to rule them all 💍
+[Last version](https://img.shields.io/github/tag/omarsotillo/spm.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/omarsotillo/spm/master.svg?style=flat-square)](https://travis-ci.org/omarsotillo/spm)
+[![Dependency status](https://img.shields.io/david/omarsotillo/spm.svg?style=flat-square)](https://david-dm.org/omarsotillo/spm)
+[![Dev Dependencies Status](https://img.shields.io/david/dev/omarsotillo/spm.svg?style=flat-square)](https://david-dm.org/omarsotillo/omar#info=devDependencies)
+[![NPM Status](https://img.shields.io/npm/dm/@omarsotillo/spm.svg?style=flat-square)](https://www.npmjs.org/package/omarsotillo/spm)
+
+<!-- [![Coverage Status](https://img.shields.io/coveralls/omarsotillo/spm.svg?style=flat-square)](https://coveralls.io/github/omarsotillo/spm) -->
 
 - Resolve conflicts with shared libraries in a interactive cli 🤷🏻‍♂️
 - General commands: forget about the implementation of each package manager
@@ -13,23 +19,46 @@ The only package manager to rule them all 💍
 
 # Usage (--help)
 
-![Usage](docs/images/usage.png)
+```bash
+ Usage ⚡️
+      $ spm install                  - install all libraries in project package-managers
+      $ spm add <library/es>         - add new library/es to the project-managers
+      $ spm update <library/es>      - update library/es to the project-managers
+      $ spm run <command>            - run a command in the projects package-manager
+      $ spm delete <library/es>      - delete a library in the projects package-manager
+      $ spm outdated                 - check outdates libraries
+      $ spm list                     - list all libraries in all the projects
 
-## Package managers supported
+    Options 🗃 (all command accepts specific manager flags)
+      --print, -p        - Will print the command but not execute it
+      --global, -g       - Global mode installation. Commands like add will be converted to global
+      --development, -d  - Add the command in development mode
 
-|        Package manager        | Install | Add | Update | Lock | Global | Development(soon) |
-| :---------------------------: | :-----: | :-: | :----: | :--: | :----: | :---------------: |
-|           yarn(js)            |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
-|            npm(js)            |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
-|           pnpm(js)            |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
-|         bundler(ruby)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
-| cargo - with cargo-edit(rust) |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |        ❌         |
-|          pip(python)          |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |        ❌         |
-|         composer(php)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |        ❌         |
+    Examples 🎉
+      $ spm add react
+      📝 Add library in the package-managers that register a react package/library
+```
 
-## Contributing
+# Package managers supported
 
-TODO: contributing guide
-`yarn install`
-`yarn run start`
-`ts-node dist/index.js <command> <options>`
+|     Package manager      | Install | Add | Update | Lock | Global | Dev(soon) | Clean(soon) | Lock(soon) | Cache(soon) |
+| :----------------------: | :-----: | :-: | :----: | :--: | :----: | :-------: | :---------: | :--------: | :---------: |
+|         yarn(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
+|         npm(js)          |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
+|         pnpm(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
+|      bundler(ruby)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
+| cargo - cargo-edit(rust) |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |     ❌      |     ❌     |     ❌      |
+|       pip(python)        |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |     ❌      |     ❌     |     ❌      |
+|      composer(php)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
+
+# Contributing
+
+```bash
+yarn install
+yarn run start
+ts-node dist/index.js <command> <options> // e.g ts-node dist/index.js add react
+```
+
+# Thanks
+
+Heavily inspired

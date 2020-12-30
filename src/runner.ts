@@ -7,42 +7,43 @@ import {
   errorNoManagersFound,
   errorLibraryIsNotInAnyRegistries,
 } from './cli/cli';
-import { isLibraryOnRegistries } from './registries';
+import { isLibraryOnRegistries } from './fetch';
 import { promptToResolveDuplicates } from './cli/prompt';
 import { formatChoicesForManagers, recordHasAtLeastOneKey } from './utils';
 
-export async function run(cli: meow.Result<any>): Promise<string | void> {
-  const cliCommand = cli.input[0].charAt(0) as Command;
-  const extraArgs = cli.input.slice(1);
-
+export async function run(
+  cli: meow.Result<any>
+): Promise<string | void | Buffer> {
   const managers = await findManagersBasedOnLockfiles();
 
   if (!managers) {
     return errorNoManagersFound();
   }
 
-  let fetchedLibraries: Record<string, Manager[]> = {};
+  let librariesInRegistries: Record<string, Manager[]> = {};
+  const extraArgs = cli.input.slice(1);
+  const cliCommand = cli.input[0].charAt(0) as Command;
 
   if (cliCommand === 'a' || cliCommand === 'u') {
-    fetchedLibraries = await isLibraryOnRegistries(managers, extraArgs);
+    librariesInRegistries = await isLibraryOnRegistries(managers, extraArgs);
 
-    if (Object.keys(fetchedLibraries).length === 0) {
+    if (Object.keys(librariesInRegistries).length === 0) {
       errorLibraryIsNotInAnyRegistries();
     }
   }
 
   let choices: Record<Manager, string[]> = {};
 
-  if (toInstallInMultipleManagers(fetchedLibraries)) {
+  if (toInstallInMultipleManagers(librariesInRegistries)) {
     choices = formatChoicesForManagers(
-      await promptToResolveDuplicates(fetchedLibraries)
+      await promptToResolveDuplicates(librariesInRegistries)
     );
   }
 
   for (const manager of managers) {
     if (
-      recordHasAtLeastOneKey(fetchedLibraries) &&
-      !canManagerExecuteLibrary(fetchedLibraries, manager)
+      recordHasAtLeastOneKey(librariesInRegistries) &&
+      !canManagerExecuteLibrary(librariesInRegistries, manager)
     )
       continue;
 
@@ -53,10 +54,10 @@ export async function run(cli: meow.Result<any>): Promise<string | void> {
     if (execCommand === undefined) continue; // TODO: better error handling
 
     if (cli.flags['print']) {
-      console.log(execCommand);
-    } else {
-      execSync(execCommand as string, { stdio: 'inherit' });
+      return console.log(execCommand);
     }
+
+    return execSync(execCommand as string, { stdio: 'inherit' });
   }
 }
 

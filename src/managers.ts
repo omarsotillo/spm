@@ -4,7 +4,7 @@ export type Manager = keyof typeof MANAGERS;
 
 export type ManagerOptions = {
   commands: Commands;
-  registry: string;
+  registryUrl: string;
   //developmentFlag: string | undefined;
 };
 
@@ -19,7 +19,7 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       l: 'pnpm list',
       o: 'pnpm outdated',
     },
-    registry: 'https://registry.npmjs.org/{0}',
+    registryUrl: 'https://registry.npmjs.org/{0}',
   },
   npm: {
     commands: {
@@ -30,7 +30,7 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       l: 'npm list',
       o: 'npm outdated',
     },
-    registry: 'https://registry.npmjs.org/{0}',
+    registryUrl: 'https://registry.npmjs.org/{0}',
   },
   yarn: {
     commands: {
@@ -41,7 +41,7 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       l: 'yarn list',
       o: 'yarn outdated',
     },
-    registry: 'https://registry.yarnpkg.com/{0}',
+    registryUrl: 'https://registry.yarnpkg.com/{0}',
   },
   bundler: {
     commands: {
@@ -52,7 +52,7 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       l: 'bundle list',
       o: 'bundler outdated',
     },
-    registry: 'https://rubygems.org/gems/{0}',
+    registryUrl: 'https://rubygems.org/gems/{0}',
   },
   composer: {
     commands: {
@@ -63,6 +63,6 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       l: 'php composer.phar {G} list',
       o: 'php composer.phar outdated',
     },
-    registry: 'https://packagist.org/packages/{0}',
+    registryUrl: 'https://packagist.org/packages/{0}',
   },
 };
