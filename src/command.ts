@@ -1,5 +1,6 @@
 import meow from 'meow';
 import { Manager, MANAGERS } from './managers';
+import { camelToKebabCase, recordHasAtLeastOneKey } from './utils';
 
 export type Command = keyof Commands;
 export type Commands = {
@@ -46,13 +47,14 @@ function addArguments(command: string, args: string[]): string | undefined {
 }
 
 function addFlags(command: string, flags: meow.TypedFlags<any>) {
-  if (flags === undefined || (flags && !flags?.length)) return command;
-
+  if (flags === undefined || (flags && !recordHasAtLeastOneKey(flags)))
+    return command;
   const formattedFlags = Object.entries(flags)
     .filter((flag) => flag[1])
     .map((value) => {
-      const array = value as [string, string];
-      return '--' + array[0] + '=' + array[1].toString();
+      const array = value as [string, any];
+      return '--' + camelToKebabCase(array[0]);
+      // TODO: handle cases when array[1] is not boolean = array[1]
     })
     .join(' ');
   return command.concat(' ' + formattedFlags);

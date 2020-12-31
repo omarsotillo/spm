@@ -32,3 +32,7 @@ export function formatChoicesForManagers(answers: { libraries: any }) {
 export function recordHasAtLeastOneKey(object: Record<string, unknown>) {
   return Object.keys(object).length > 0;
 }
+
+export function camelToKebabCase(str: string): string {
+  return str.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+}

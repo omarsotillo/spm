@@ -43,15 +43,15 @@
 
 # Package managers supported
 
-|     Package manager      | Install | Add | Update | Lock | Global | Dev(soon) | Clean(soon) | Lock(soon) | Cache(soon) |
-| :----------------------: | :-----: | :-: | :----: | :--: | :----: | :-------: | :---------: | :--------: | :---------: |
-|         yarn(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
-|         npm(js)          |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
-|         pnpm(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
-|      bundler(ruby)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
-| cargo - cargo-edit(rust) |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |     ❌      |     ❌     |     ❌      |
-|       pip(python)        |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |     ❌      |     ❌     |     ❌      |
-|      composer(php)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |     ❌      |     ❌     |     ❌      |
+|     Package manager      | Install | Add | Update | Lock | Global | Dev(soon) | Clean | Delete |
+| :----------------------: | :-----: | :-: | :----: | :--: | :----: | :-------: | :---: | :----: |
+|         yarn(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
+|         npm(js)          |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
+|         pnpm(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
+|      bundler(ruby)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
+| cargo - cargo-edit(rust) |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |  ❌   |   ❌   |
+|       pip(python)        |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |  ❌   |   ❌   |
+|      composer(php)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
 
 # Contributing
 
