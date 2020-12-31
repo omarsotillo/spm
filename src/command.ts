@@ -47,15 +47,25 @@ function addArguments(command: string, args: string[]): string | undefined {
 }
 
 function addFlags(command: string, flags: meow.TypedFlags<any>) {
-  if (flags === undefined || (flags && !recordHasAtLeastOneKey(flags)))
+  if (
+    command === undefined ||
+    flags === undefined ||
+    (flags && !recordHasAtLeastOneKey(flags))
+  )
     return command;
-  const formattedFlags = Object.entries(flags)
+
+  const formattedFlags = formatFlags(flags);
+  return formattedFlags === undefined
+    ? command
+    : command.concat(' ' + formattedFlags);
+}
+
+function formatFlags(flags: meow.TypedFlags<any>) {
+  return Object.entries(flags)
     .filter((flag) => flag[1])
     .map((value) => {
       const array = value as [string, any];
       return '--' + camelToKebabCase(array[0]);
-      // TODO: handle cases when array[1] is not boolean = array[1]
     })
     .join(' ');
-  return command.concat(' ' + formattedFlags);
 }
