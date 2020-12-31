@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/omarsotillo/spm/compare/v0.1.12...v0.1.13) (2020-12-31)
+
+
+### Features
+
+* moves towards esbuild ([9ce5f8a](https://github.com/omarsotillo/spm/commit/9ce5f8af8352803ef5db27ef393b50612d88d0f8))
+
 ### 0.1.12 (2020-12-31)
 
 
