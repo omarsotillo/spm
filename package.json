@@ -65,11 +65,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdx build",
+    "build": "tsup src/index.ts --format esm,cjs",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "lint": "tsdx lint",
     "postrelease": "npm run release:tags && npm run release:github && ci-publish",
-    "prepare": "tsdx build",
+    "prepare": "tsup src/index.ts --format esm,cjs",
     "prerelease": "npm run update:check && npm run contributors",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
