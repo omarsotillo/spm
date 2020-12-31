@@ -24,7 +24,7 @@ export async function run(
   const extraArgs = cli.input.slice(1);
   const cliCommand = cli.input[0].charAt(0) as Command;
 
-  if (cliCommand === 'a' || cliCommand === 'u') {
+  if (commandAcceptsLibraries(cliCommand)) {
     librariesInRegistries = await isLibraryOnRegistries(managers, extraArgs);
 
     if (Object.keys(librariesInRegistries).length === 0) {
@@ -67,6 +67,10 @@ function toInstallInMultipleManagers(
   return !Object.keys(existingLibraries).every(
     (k) => existingLibraries[k].length <= 1
   );
+}
+
+function commandAcceptsLibraries(cliCommand: string) {
+  return cliCommand === 'a' || cliCommand === 'u' || cliCommand === 'd';
 }
 
 function canManagerExecuteLibrary(

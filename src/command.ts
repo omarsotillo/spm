@@ -8,7 +8,7 @@ export type Commands = {
   u: string;
   r: string;
   l: string;
-  //d: string;
+  d: string;
   o: string;
 };
 
@@ -32,7 +32,7 @@ export function parseCommand(
 }
 
 function commandNeedsArguments(cliCommand: string): boolean {
-  return ['a', 'u', 'r'].includes(cliCommand);
+  return ['a', 'u', 'r', 'd'].includes(cliCommand);
 }
 
 function addGlobalParam(command: string, global: unknown): string {
