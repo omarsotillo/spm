@@ -12,6 +12,7 @@ export const JS_LOCK_FILES: Record<string, Manager> = {
 export const BACKEND_MANAGERS: Record<string, Manager> = {
   'Gemfile.lock': 'bundler',
   'composer.json': 'composer',
+  'Cargo.lock': 'cargo',
 };
 
 export const MANAGERS: Record<string, Manager> = {

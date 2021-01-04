@@ -60,8 +60,8 @@ export const MANAGERS: Record<string, ManagerOptions> = {
   },
   composer: {
     commands: {
-      r: 'bundler run {0}',
-      i: 'php composer.phar {G} install {0}',
+      r: 'php composer.phar exec {0}',
+      i: 'php composer.phar {G} install',
       a: 'php composer.phar {G} install {0}',
       u: 'php composer.phar {G} update {0}',
       l: 'php composer.phar {G} list',
@@ -69,5 +69,17 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       d: 'php composer.phar {G} remove {0}',
     },
     registryUrl: 'https://packagist.org/packages/{0}',
+  },
+  cargo: {
+    commands: {
+      r: 'cargo run {0}',
+      i: 'cargo install {0}',
+      a: 'cargo add install {0}',
+      u: 'cargo update {0}',
+      l: 'cargo tree',
+      o: 'cargo outdated',
+      d: 'cargo rm {0}',
+    },
+    registryUrl: 'https://crates.io/crates/{0}',
   },
 };
