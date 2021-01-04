@@ -2,7 +2,7 @@
   "name": "@omarsotillo/spm",
   "description": "The only package manager you will ever need",
   "homepage": "https://github.com/omarsotillo/spm",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "dist/index.js",
   "module": "dist/spm.esm.js",
   "bin": {

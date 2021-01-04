@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/omarsotillo/spm/compare/v0.1.13...v0.1.14) (2021-01-04)
+
+
+### Features
+
+* add cargo and fix composer commands ([f75363a](https://github.com/omarsotillo/spm/commit/f75363a0e9fd1f5c502b59f6b31adc467ba02183))
+* dev flag support and custom flags ([448a77e](https://github.com/omarsotillo/spm/commit/448a77e5f64f8233f61cc882eaee6d014901bfbb))
+
+
+### Bug Fixes
+
+* when command does not accept flags don't fail hardly ([fa6da60](https://github.com/omarsotillo/spm/commit/fa6da60365fb25e651fcc8a90f8f55b681dca210))
+
 ### [0.1.13](https://github.com/omarsotillo/spm/compare/v0.1.12...v0.1.13) (2020-12-31)
 
 
