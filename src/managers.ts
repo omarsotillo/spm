@@ -2,10 +2,13 @@ import { Commands } from './command';
 
 export type Manager = keyof typeof MANAGERS;
 
+export type CustomFlags = {
+  dev: string | undefined;
+};
 export type ManagerOptions = {
   commands: Commands;
   registryUrl: string;
-  //developmentFlag: string | undefined;
+  customFlags: CustomFlags;
 };
 
 // Support configuration for library servers
@@ -14,25 +17,31 @@ export const MANAGERS: Record<string, ManagerOptions> = {
     commands: {
       r: 'pnpm run {0}',
       i: 'pnpm i',
-      a: 'pnpm i {0}',
+      a: 'pnpm i {0} {D}',
       u: 'pnpm update {0}',
       l: 'pnpm list',
       o: 'pnpm outdated',
-      d: 'pnpm remove {0}',
+      d: 'pnpm remove {0} {D}',
     },
     registryUrl: 'https://registry.npmjs.org/{0}',
+    customFlags: {
+      dev: '--save-dev',
+    },
   },
   npm: {
     commands: {
       r: 'npm run {0}',
       i: 'npm i',
-      a: 'npm i {0}',
+      a: 'npm i {0} {D}',
       u: 'npm update {0}',
       l: 'npm list',
       o: 'npm outdated',
-      d: 'npm uninstall {0}',
+      d: 'npm uninstall {0} {D}',
     },
     registryUrl: 'https://registry.npmjs.org/{0}',
+    customFlags: {
+      dev: '--save-dev',
+    },
   },
   yarn: {
     commands: {
@@ -45,6 +54,9 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       d: 'yarn {G} remove {0}',
     },
     registryUrl: 'https://registry.yarnpkg.com/{0}',
+    customFlags: {
+      dev: undefined, // uses --dev
+    },
   },
   bundler: {
     commands: {
@@ -57,6 +69,9 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       d: 'bundle remove {0}',
     },
     registryUrl: 'https://rubygems.org/gems/{0}',
+    customFlags: {
+      dev: undefined, // not supported
+    },
   },
   composer: {
     commands: {
@@ -69,6 +84,9 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       d: 'php composer.phar {G} remove {0}',
     },
     registryUrl: 'https://packagist.org/packages/{0}',
+    customFlags: {
+      dev: undefined, // uses --dev
+    },
   },
   cargo: {
     commands: {
@@ -81,5 +99,8 @@ export const MANAGERS: Record<string, ManagerOptions> = {
       d: 'cargo rm {0}',
     },
     registryUrl: 'https://crates.io/crates/{0}',
+    customFlags: {
+      dev: undefined, // not supported
+    },
   },
 };

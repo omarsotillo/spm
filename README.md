@@ -32,7 +32,7 @@
     Options 🗃 (all command accepts specific manager flags)
       --print, -p        - Will print the command but not execute it
       --global, -g       - Global mode installation. Commands like add will be converted to global
-      --development, -d  - Add the command in development mode
+      --dev, -d  - Add the command in development mode
       --backend, -b      - Run command in backend package manager only
       --frontend, -f     - Run command in frontend package manager only
 
@@ -43,15 +43,15 @@
 
 # Package managers supported
 
-|     Package manager      | Install | Add | Update | Lock | Global | Dev(soon) | Clean | Delete |
-| :----------------------: | :-----: | :-: | :----: | :--: | :----: | :-------: | :---: | :----: |
-|         yarn(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
-|         npm(js)          |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
-|         pnpm(js)         |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
-|      bundler(ruby)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
-| cargo - cargo-edit(rust) |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |  ❌   |   ❌   |
-|       pip(python)        |   ❌    | ❌  |   ❌   |  ❌  |   ❌   |    ❌     |  ❌   |   ❌   |
-|      composer(php)       |   ✅    | ✅  |   ✅   |  ✅  |   ✅   |    ❌     |  ❌   |   ✅   |
+|     Package manager      | Install | Add | Update | Global | Dev() | Delete |
+| :----------------------: | :-----: | :-: | :----: | :----: | :---: | :----: |
+|         yarn(js)         |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
+|         npm(js)          |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
+|         pnpm(js)         |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
+|      bundler(ruby)       |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
+| cargo - cargo-edit(rust) |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
+|       pip(python)        |   ❌    | ❌  |   ❌   |   ❌   |  ❌   |   ❌   |
+|      composer(php)       |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
 
 # Contributing
 

@@ -1,5 +1,5 @@
 import meow from 'meow';
-import { Manager, MANAGERS } from './managers';
+import { Manager, ManagerOptions, MANAGERS } from './managers';
 import { camelToKebabCase, recordHasAtLeastOneKey } from './utils';
 
 export type Command = keyof Commands;
@@ -25,6 +25,7 @@ export function parseCommand(
   if (commandNeedsArguments(cliCommand)) {
     command = addGlobalParam(command, flags.global);
     command = addArguments(command, args);
+    command = addDevelopmentParam(command, flags.development, packageManager);
   }
 
   command = addFlags(command, flags);
@@ -39,6 +40,17 @@ function commandNeedsArguments(cliCommand: string): boolean {
 function addGlobalParam(command: string, global: unknown): string {
   if (global) return command.replace('{G}', 'global');
   return command.replace(' {G}', '');
+}
+
+function addDevelopmentParam(
+  command: string,
+  development: unknown,
+  packageManager: ManagerOptions
+): string {
+  if (!development || packageManager.customFlags.dev === undefined)
+    return command.replace(' {D}', '');
+
+  return command.replace('{D}', packageManager.customFlags.dev);
 }
 
 function addArguments(command: string, args: string[]): string | undefined {

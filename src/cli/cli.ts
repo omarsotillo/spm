@@ -33,7 +33,7 @@ export function createCli() {
     Options 🗃 (all command accepts specific manager flags)
       --print, -p        - Will print the command but not execute it
       --global, -g       - Global mode installation. Commands like add will be converted to global
-      --development, -d  - Add the command in development mode
+      --dev, -d  - Add the command in development mode
       --backend, -b      - Run command in backend package manager only
       --frontend, -f     - Run command in frontend package manager only
 
@@ -51,7 +51,7 @@ export function createCli() {
           type: 'boolean',
           alias: 'g',
         },
-        development: {
+        dev: {
           type: 'boolean',
           alias: 'd',
         },
