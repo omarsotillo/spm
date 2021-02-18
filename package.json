@@ -35,7 +35,8 @@
     "find-up": "^5.0.0",
     "inquirer": "^7.3.3",
     "meow": "^8.1.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "simple-pre-commit": "^1.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -45,13 +46,13 @@
     "@types/node-fetch": "^2.5.7",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
-    "finepack": "latest",
-    "git-authors-cli": "latest",
-    "husky": "latest",
-    "lint-staged": "latest",
-    "npm-check-updates": "latest",
+    "finepack": "^2.10.11",
+    "git-authors-cli": "^1.0.33",
+    "lint-staged": "^10.5.4",
+    "npm-check-updates": "^11.1.4",
+    "rimraf": "^3.0.2",
     "size-limit": "^4.9.1",
-    "standard-version": "latest",
+    "standard-version": "^9.1.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
     "tsup": "^3.11.0",
@@ -65,7 +66,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs",
+    "build": "rimraf dist && tsup src/index.ts --format esm,cjs",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "lint": "tsdx lint",
     "postrelease": "npm run release:tags && npm run release:github && ci-publish",
@@ -85,12 +86,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
   "licenses": [
     {
       "license": "MIT"
@@ -108,5 +103,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "simple-pre-commit": "npx lint-staged",
   "typings": "dist/index.d.ts"
 }
