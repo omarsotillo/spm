@@ -66,15 +66,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && tsup src/index.ts --format esm,cjs",
+    "build": "rimraf dist && tsup src/index.ts --format esm,cjs --dts",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "lint": "tsdx lint",
     "postrelease": "npm run release:tags && npm run release:github && ci-publish",
-    "prepare": "tsup src/index.ts --format esm,cjs",
+    "prepare": "build ",
     "prerelease": "npm run update:check && npm run contributors",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
-    "release:tags": "git push --follow-tags origin HEAD:master",
+    "release:tags": "git push --follow-tags origin HEAD:main",
     "start": "tsdx watch",
     "test": "tsdx test",
     "update": "ncu -u",
