@@ -35,7 +35,7 @@ export async function findManagersBasedOnLockfiles(
 
   const managers = isArrayEmpty(managers_pathes)
     ? undefined
-    : managers_pathes.map((element) => {
+    : managers_pathes.map(element => {
         return MANAGERS[path.basename(element as string)];
       });
   return managers;

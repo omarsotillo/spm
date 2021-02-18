@@ -10,7 +10,7 @@ export function promptToResolveDuplicates(
       'This library exist in both registries. Choose in which package manager to install:',
     name: 'libraries',
     choices: choices(libraries),
-    validate: function (answer) {
+    validate: function(answer) {
       if (answer.length < 1) {
         return 'You must choose at least one library.';
       }
@@ -25,14 +25,14 @@ function choices(libraries: Record<string, Manager[]>) {
   for (const [key, value] of Object.entries(libraries)) {
     choices.push(new inquirer.Separator(key));
     value
-      .map((manager) => {
+      .map(manager => {
         return {
           name: manager,
           value: manager + '-' + key,
           short: manager + '-' + key,
         };
       })
-      .forEach((option) => {
+      .forEach(option => {
         choices.push(option);
       });
   }

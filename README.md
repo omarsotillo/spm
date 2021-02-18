@@ -15,7 +15,7 @@
 
 # Installation
 
-`yard global add @omarsotillo/spm`
+`yarn global add @omarsotillo/spm`
 
 # Usage (--help)
 
@@ -54,6 +54,7 @@
 |      composer(php)       |   ✅    | ✅  |   ✅   |   ✅   |  ✅   |   ✅   |
 
 # Contributing
+You need (ts-node)[https://github.com/TypeStrong/ts-node]. Please, follow the instructions
 
 ```bash
 yarn install

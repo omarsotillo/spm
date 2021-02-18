@@ -7,8 +7,8 @@ export function remove<T>(array: T[], value: T) {
 }
 
 export function cleanArray<T>(array: T[], value: T): Array<T> {
-  return array.filter((el) => {
-    return el != value;
+  return array.filter(el => {
+    return el !== value;
   });
 }
 
@@ -34,5 +34,5 @@ export function recordHasAtLeastOneKey(object: Record<string, unknown>) {
 }
 
 export function camelToKebabCase(str: string): string {
-  return str.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+  return str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
 }

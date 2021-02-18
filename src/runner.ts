@@ -65,7 +65,7 @@ function toInstallInMultipleManagers(
   existingLibraries: Record<string, Manager[]>
 ): boolean {
   return !Object.keys(existingLibraries).every(
-    (k) => existingLibraries[k].length <= 1
+    k => existingLibraries[k].length <= 1
   );
 }
 
@@ -77,7 +77,7 @@ function canManagerExecuteLibrary(
   existingLibraries: Record<string, Manager[]>,
   manager: string
 ) {
-  return Object.values(existingLibraries).find((value) =>
+  return Object.values(existingLibraries).find(value =>
     value.includes(manager)
   );
 }
