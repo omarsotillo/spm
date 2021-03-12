@@ -36,7 +36,7 @@
     "inquirer": "^7.3.3",
     "meow": "^9.0.0",
     "node-fetch": "^2.6.1",
-    "simple-pre-commit": "^1.1.2"
+    "simple-git-hooks": "2.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -103,6 +103,8 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "simple-pre-commit": "npx lint-staged",
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
   "typings": "dist/index.d.ts"
 }
