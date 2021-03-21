@@ -61,7 +61,3 @@ yarn install
 yarn run start
 ts-node dist/index.js <command> <options> // e.g ts-node dist/index.js add react
 ```
-
-# Thanks
-
-Heavily inspired
